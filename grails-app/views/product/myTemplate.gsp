@@ -20,9 +20,9 @@
             %{--<th><td>Name</td><td>Quantity</td><td>Price</td></th>--}%
             <g:each in="${myList}" var="list" status="index">
                 <tr><td>${list.name}</td><td>${list.quantity}</td><td>${list.totalPrice}</td></tr>
-                <g:if test="${index == list.size()-1 }">
-                    <td>Grand Total Price: ${list.grandTotalPrice}</td>
-                </g:if>
+                %{--<g:if test="${index == list.size()-1 }">--}%
+                    Grand Total Price: ${list.grandTotalPrice}
+                %{--</g:if>--}%
 
             </g:each>
         </tbody>
