@@ -20,9 +20,9 @@
             %{--<th><td>Name</td><td>Quantity</td><td>Price</td></th>--}%
             <g:each in="${myList}" var="list" status="index">
                 <tr><td>${list.name}</td><td>${list.quantity}</td><td>${list.totalPrice}</td></tr>
-                %{--<g:if test="${index == list.size()-1 }">--}%
-                    Grand Total Price: ${list.grandTotalPrice}
-                %{--</g:if>--}%
+                <g:if test="${index ==myList.size()-1}">
+                    Grand Total Price: <g:dwitNumberFormat number="${list.grandTotalPrice}" format="Rs##0.00"/>
+                </g:if>
 
             </g:each>
         </tbody>

@@ -46,9 +46,7 @@
                 </div>
                 <g:link controller="product" action="productDetails"> <span class="icon-home"></span> Home</g:link>
                 <g:link controller="user" action="loginForm"><span class="icon-user"></span>Login</g:link>
-                <form action="#" class="navbar-search pull-left">
-                    <input type="text" placeholder="Search" class="search-query span2">
-                </form>
+
 
                 <g:link controller="product" action="showCart"><span class="icon-shopping-cart"><span class='cartitem'></span> Item(s) - Rs<span class='total-price badge badge-warning'>0</span></g:link>
             </div>

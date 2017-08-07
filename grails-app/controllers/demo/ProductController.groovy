@@ -150,7 +150,7 @@ class ProductController extends BaseController{
         CommonsMultipartFile file = (CommonsMultipartFile) mpr.getFile("image");
         file
     }
-    def beforeInterceptor=[action:this.&auth,except:['productDetails','sendEmail','showCart','search']]
+    def beforeInterceptor=[action:this.&auth,except:['productDetails','sendEmail','showCart','search','searchBar']]
     def groovyPageRenderer
     def mailService
     def sendEmail() {
@@ -183,6 +183,9 @@ class ProductController extends BaseController{
             render(view:'productDetails', model:[ productList:
                                                    category ? Product.findAllByCategory(category):[]])
             }
+    def searchBar={
+        render(view: 'productDetails',model: [productList: Product.findAllByNameLikeOrManufacturer('%'+params.name+'%','%'+params.manufacturer+'%')])
+    }
 
 
 

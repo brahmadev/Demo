@@ -86,11 +86,30 @@ Lower Header Section
                         <li><g:link controller="product" action="search" params="[name:'Household']">Households</g:link></li>
                         <li><g:link controller="product" action="search" params="[name:'Kitchen']">Kitchen stuffs</g:link></li>
                         <li><g:link controller="product" action="search" params="[name:'Music']">Music Instruments</g:link></li>
-                    </ul>
-                    <form action="#" class="navbar-search pull-right">
-                        <input type="text" placeholder="Search" class="search-query span2">
-                    </form>
+                       %{-- <li><g:form controller="product" action="searchPrice">
+                            <select name="priceSelect" style="width: 50px;">
+                            <option value="atLeast">At least</option>
+                            <option value="exactly">Exactly</option>
+                            <option value="atMost">At Most</option>
+                        </select>
+                            Rs
+                            <input type="text" name="price" style="width: 60px;"/>
+                            <input type="submit" value="searchPrice" style="align-self: baseline"/>
+                            </g:form>
+                        </li>--}%
 
+                    </ul>
+                   %{-- <form action="#" class="navbar-search pull-right">
+                        <input type="text" placeholder="Search" class="search-query span2">
+                    </form>--}%
+                    <g:form class="navbar-form pull-right form-search" controller="product" action="searchBar">
+                        <div class="input-append">
+                            <i class="icon-zoom-in"></i>
+                            <input name="name" manufacturer="manufacturer" data-items="4"  type="text"
+                                   class="span2 search-query">
+                            <input type="submit" class="btn" value="search"/>
+                        </div>
+                    </g:form>
                 </div>
             </div>
         </div>
@@ -105,7 +124,7 @@ Three column view
 <li class="span3">
     <div class="thumbnail">
         <p >${products.category}</p>
-        <img src="${resource(dir: 'images/products', file: "${products.imagePath}")}" height="100px" width="100px" alt="">
+        <img src="${resource(dir: 'images/products', file: "${products.imagePath}")}" height="100px" width="100px">
         <div class="caption cntr">
             <p >${products.manufacturer}</p>
             <p >${products.name}</p>
@@ -118,29 +137,7 @@ Three column view
 </li>
     </g:each>
 </ul>
-<div id="cart" style="display:none;">
-    <div class="well well-small">
-        <h1>Check Out <small class="pull-right"> 2 Items are in the cart </small></h1>
-        <hr class="soften"/>
 
-        <table class="table table-bordered table-condensed">
-            <thead>
-            <tr>
-                <th>Product</th>
-                <th>Description</th>
-                <th>Unit price</th>
-                <th>Qty </th>
-                <th>Total</th>
-            </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-        </div>
-    </div>
-
-
-        </div>
 
 <!-- /container -->
 
